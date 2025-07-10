@@ -13,15 +13,15 @@ This doc introduces all the parameters that can be configured in the `[params]`.
 lightTheme = "emerald"
 darkTheme = "forest"
 
-# backgroundImage = "me/background.jpg"
+# backgroundImage = "img/global-background.jpg"
 # backgroundImageDark = ""
 
-images = ["me/background.jpg"]
+images = ["img/global-background.jpg"]
 
 author = "g1eny0ung"
 description = "g1eny0ung 的生活记录～"
-avatar = "me/yy.jpg"
-headerTitle = "g1eny0ung 的博客"
+avatar = "img/personal/avatar.jpg"
+headerTitle = "g1eny0ung's Blog"
 motto = "与其感慨路难行，不如马上出发。"
 
 # footerBottomText = ""
@@ -48,7 +48,7 @@ customSyntaxHighlighting = true
 
 # options
 stickyNav = true
-# reorderNavItems = ["search", "rss", "posts", "categories", "tags"]
+# reorderNavItems = ["about", "search", "rss", "posts", "categories", "tags"]
 # collapseNavItems = ["posts", "categories", "tags"]
 # noDefaultSummaryCover = true
 showTableOfContents = true
@@ -166,7 +166,7 @@ Here is an [example](https://github.com/g1eny0ung/blog/blob/master/layouts/parti
 <Callout type="info">
 You still need to set the `valine` parameter to `true` to enable Valine when using a custom partial file.
 
-Other related parameters will be ingored.
+Other related parameters will be ignored.
 </Callout>
 
 ### waline
@@ -189,7 +189,32 @@ Here is an [example](https://github.com/g1eny0ung/blog/blob/master/layouts/parti
 <Callout type="info">
 You still need to set the `waline` parameter to `true` to enable Waline when using a custom partial file.
 
-Other related parameters will be ingored.
+Other related parameters will be ignored.
+</Callout>
+
+### twikoo
+
+Twikoo is a **simple**, **safe**, **free** comment system.
+You can view https://twikoo.js.org/en/ for more details.
+
+To enable Twikoo, you need to set the `params.twikoo.enabled` parameter to `true` and set the following 3 parameters according to the [official manual](https://twikoo.js.org/en/quick-start.html):
+
+```toml
+[params.twikoo]
+enabled = true
+envID = ""
+region = ""
+lang = ""
+```
+
+If you want to customize Twikoo,
+you can create a partial file named `twikoo.html` in the `layouts/partials` folder.
+Here is an [example](https://github.com/g1eny0ung/blog/blob/master/layouts/partials/twikoo.html).
+
+<Callout type="info">
+You still need to set the `params.twikoo.enabled` parameter to `true` to enable Twikoo when using a custom partial file.
+
+Other related parameters will be ignored.
 </Callout>
 
 ### siteStartYear
@@ -199,11 +224,19 @@ site footer.
 
 ### favicon
 
-Custom the [favicon](https://en.wikipedia.org/wiki/Favicon), place it in the `static` folder.
+Custom the [favicon](https://en.wikipedia.org/wiki/Favicon) of your site, place it in the `static` folder.
+
+<Callout type="info">
+You can also specify the favicon in text format (starting with `<link`), for example:
+
+```html
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>🌱</text></svg>"></link>
+```
+</Callout>
 
 ### customSyntaxHighlighting
 
-View [Syntax highlighting](syntax-highlighting.md) for more details.
+View [Syntax highlighting](syntax-highlighting.mdx) for more details.
 
 ### stickyNav
 
@@ -216,7 +249,7 @@ Reorder the navigation items.
 This parameter is **an array of strings**, the default value is:
 
 ```toml
-reorderNavItems = ["search", "rss", "posts", "categories", "tags"]
+reorderNavItems = ["about", "search", "rss", "posts", "categories", "tags"]
 ```
 
 <Callout type="info">
@@ -227,10 +260,11 @@ reorderNavItems = ["search", "rss", "posts", "categories", "tags"]
 This parameter also allows you to remove the default navigation items.
 For example, if you don't want to show the `rss` item, you can set the value as:
 
-`reorderNavItems = ["search", "posts", "categories", "tags"]`
+`reorderNavItems = ["about", "search", "posts", "categories", "tags"]`
+
 </Callout>
 
-For reordering custom navigation items, see [Custom Navbar Items](custom-nav-items.md).
+For reordering custom navigation items, see [Custom Navbar Items](custom-nav-items.mdx).
 
 ### collapseNavItems
 
@@ -257,11 +291,11 @@ If you don't want this behavior, you can set this param to `true`.
 
 ### showTableOfContents
 
-Show table of contents in the single post page.
+Show the table of contents on the single post page.
 
 ### showSummaryCoverInPost
 
-Show summary cover image in the single post page.
+Show the summary cover image at the top of the single post page.
 
 ### imageZoomableInPost
 

@@ -14,7 +14,6 @@ tags:
   - tag1
   - tag2
 # nolastmod: true
-# math: true
 draft: true
 ---
 
